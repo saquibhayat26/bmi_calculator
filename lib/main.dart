@@ -1,4 +1,7 @@
+import 'package:bmi_calculator/input_page.dart';
+import 'package:bmi_calculator/pages/results_page.dart';
 import 'package:flutter/material.dart';
+// import 'input_page.dart'
 
 void main() => runApp(const MyApp());
 
@@ -8,15 +11,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          primary: const Color(0xff0c0f1e),
         ),
-        body: const Center(
-          child: Text('Hello World'),
+        scaffoldBackgroundColor: const Color(0xFF0c0f1e),
+        textTheme: const TextTheme(
+          bodyText2: TextStyle(color: Colors.white),
         ),
       ),
+      title: 'Material App',
+      home: const InputPage(),
+      routes: {
+        "/result": (context) => const ResultsPage(),
+      },
     );
   }
 }
