@@ -1,7 +1,5 @@
 import 'package:bmi_calculator/input_page.dart';
-import 'package:bmi_calculator/pages/results_page.dart';
 import 'package:flutter/material.dart';
-// import 'input_page.dart'
 
 void main() => runApp(const MyApp());
 
@@ -22,9 +20,6 @@ class MyApp extends StatelessWidget {
       ),
       title: 'Material App',
       home: const InputPage(),
-      routes: {
-        "/result": (context) => const ResultsPage(),
-      },
     );
   }
 }

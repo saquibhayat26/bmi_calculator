@@ -1,5 +1,8 @@
+import 'package:bmi_calculator/calculator_brain.dart';
+import 'package:bmi_calculator/pages/results_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'components/bottom_button.dart';
 import 'components/rounded_buttons.dart';
 import 'constants.dart';
 import 'icon_content.dart';
@@ -46,8 +49,17 @@ class _InputPageState extends State<InputPage> {
   }
 
   void handleNavigate() {
-    print("1234");
-    Navigator.pushNamed(context, "/result");
+    CalculatorBrain calc = CalculatorBrain(height: _height, weight: _weight);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ResultsPage(
+          bmiResult: calc.calculateBMI(),
+          interpretation: calc.getInterPretation(),
+          resultText: calc.getResult(),
+        ),
+      ),
+    );
   }
 
   @override
@@ -244,20 +256,10 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              handleNavigate;
-            },
-            child: Container(
-              color: kBottomContainerColor,
-              margin: const EdgeInsets.only(top: 10),
-              height: kBottomContainerHeight,
-              width: double.infinity,
-              child: const Center(
-                  child: Text(
-                "CALCULATE",
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
-              )),
+          SizedBox(
+            child: BottomButton(
+              navigate: handleNavigate,
+              buttonTitle: "CALCULATE",
             ),
           ),
         ],

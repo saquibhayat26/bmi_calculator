@@ -12,22 +12,24 @@ class ReusbaleIconsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(
-          icon,
-          size: kIconsSize, //Icon Size
-          color: Colors.white, //Color Of Icon
-        ),
-        const SizedBox(
-          height: kBoxHeight,
-        ),
-        Text(
-          label.toUpperCase(),
-          style: kLabelTextStyle,
-        )
-      ],
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            icon,
+            size: kIconsSize, //Icon Size
+            color: Colors.white, //Color Of Icon
+          ),
+          const SizedBox(
+            height: kBoxHeight,
+          ),
+          Text(
+            label.toUpperCase(),
+            style: kLabelTextStyle,
+          )
+        ],
+      ),
     );
   }
 }
